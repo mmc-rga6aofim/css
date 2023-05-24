@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>CSS</title>
+</head>
+
+<body id="color">
+    <nav>
+        <div class="gen">
+            <div class="col">
+                <p class="parrafo" id="current_date">
+                </p>
+
+                <!--FECHA ACTUAL-->
+                <script>
+                    function updateClock() {
+                        date = new Date();
+                        year = date.getFullYear().toString();
+                        month = date.getMonth() + 1;
+                        day = date.getDate();
+                        hours = date.getHours();
+                        minutes = date.getMinutes();
+                        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year + " " +
+                            "<br>" +
+                            hours + ":" + ("0" + minutes).slice(-2) + " " + "GMT-6";
+                    }
+
+                    updateClock(); // llama a la función para que muestre la hora inmediatamente
+
+                    setInterval(updateClock, 1000); // llama a la función cada segundo para actualizar la hora
+                </script>
+
+            </div>
+            <div class="col">
+                <p class="parrafo">
+                    CSS (Cascading Style Sheets) fue creado por Håkon Wium Lie y Bert Bos en 1996 como un lenguaje de
+                    diseño para la web, separando el estilo del contenido.
+                </p>
+            </div>
+            <div class="col2"></div>
+        </div>
+    </nav>
+    <section class="general">
+        <header>
+
+        </header>
+        <main>
+            <div class="gen">
+                <div class="col4">
+                    <a href="">
+                        <h1 id="miElemento">Conceptos básicos</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4">
+                    <a href="">
+                        <h1 id="miElemento2">Sintaxis</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4">
+                    <a href="">
+                        <h1 id="miElemento3">Animaciones</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4">
+                    <a href="">
+                        <h1 id="miElemento4">Pseudoclases y pseudoelementos</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4">
+                    <a href="">
+                        <h1 id="miElemento5">Media queries y diseño adaptable</h1>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="gen">
+            <div class="col4">
+                <p class="parrafo">
+                    © 2023 ARG
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="js/colorfondo.js"></script>
+</html>

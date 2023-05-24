@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    background-color: #f7f4ef;
+    animation: animate 0.8s infinite;
+    transition: 0.8s;
+}
+
+@keyframes animate {
+    0% {
+        cursor: url('../img/cursor/cursor_Mesa\ de\ trabajo\ 1.png'), auto;
+    }
+
+    14.28% {
+        cursor: url('../img/cursor/cursor-02.png'), auto;
+    }
+
+    28.57% {
+        cursor: url('../img/cursor/cursor-03.png'), auto;
+    }
+
+    42.85% {
+        cursor: url('../img/cursor/cursor-04.png'), auto;
+    }
+
+    57.14% {
+        cursor: url('../img/cursor/cursor-05.png'), auto;
+    }
+
+    71.42% {
+        cursor: url('../img/cursor/cursor-06.png'), auto;
+    }
+
+    100% {
+        cursor: url('../img/cursor/cursor-07.png'), auto;
+    }
+}
+
+
+a {
+    cursor: ;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section.general {
+    width: 100%;
+    padding: 2vw;
+}
+
+div.gen {
+    width: 100%;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+
+div.col {
+    width: 22.6vw;
+    float: right;
+}
+
+div.col2 {
+    width: 47vw;
+    float: right;
+}
+
+div.col3 {
+    width: 71.5vw;
+    float: right;
+}
+
+div.col4 {
+    width: 96vw;
+    float: right;
+}
+
+nav {
+    padding: 0 2vw 0 2vw;
+    padding-top: 2vw;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    mix-blend-mode: difference;
+    filter: invert(100%);
+    color: black;
+}
+
+header {
+    background-image: url(../img/header.gif);
+    width: 100vw;
+    height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2vw;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+
+main {
+    margin-top: 600px;
+}
+
+p.parrafo {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 95%;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+main .gen {
+    margin-bottom: 50px;
+}
+
+main .col4 {
+    text-align: center;
+}
+
+.col4 h1 {
+    font-size: 144px;
+    font-stretch: 80%;
+    line-height: 90%;
+    color: blue;
+}
+
+a {
+    text-decoration: none;
+    cursor: inherit;
+}
+
+h1:hover {
+    color: yellow;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 1vw;
+    margin: 0 2vw 0 2vw;
+    mix-blend-mode: difference;
+    filter: invert(100%);
+    color: black;
+}
+
+footer .col4 {
+    text-align: center;
+}
