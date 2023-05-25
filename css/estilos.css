@@ -36,7 +36,7 @@ body {
         url('../fonts/NeueHaasDisplay-Mediu.woff') format('woff'),
         url('../fonts/NeueHaasDisplay-Mediu.ttf') format('truetype'),
         url('../fonts/NeueHaasDisplay-Mediu.svg#NeueHaasDisplay-Mediu') format('svg');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
