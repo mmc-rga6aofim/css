@@ -150,13 +150,13 @@ main {
 p.parrafo {
     color: black;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 95%;
 }
 
 h1 {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 main .gen {
