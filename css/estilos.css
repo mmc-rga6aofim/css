@@ -103,6 +103,7 @@ nav {
 
 header {
     background-image: url(../img/header.gif);
+    filter: none;
     width: 100vw;
     height: 600px;
     background-size: contain;
@@ -112,6 +113,7 @@ header {
     position: absolute;
     top: 0;
     z-index: 0;
+    transition: filter 0.8s;
 }
 
 main {
@@ -131,7 +133,7 @@ h1 {
 }
 
 main .gen {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 main .col4 {
@@ -139,10 +141,10 @@ main .col4 {
 }
 
 .col4 h1 {
-    font-size: 144px;
+    font-size: 89px;
     font-stretch: 80%;
     line-height: 90%;
-    color: blue;
+    color: black;
 }
 
 a {
@@ -151,9 +153,24 @@ a {
 }
 
 h1:hover {
-    color: yellow;
-    font-style: italic;
     text-decoration: underline;
+    font-style: italic;
+}
+
+.color-change:hover {
+    color: #f7f4ef;
+}
+
+.color-change.hover-effect {
+    color: #f7f4ef;
+}
+
+.inverted {
+    filter: invert(100%);
+}
+
+div.padding {
+    padding: 0 22.6vw 0 22.6vw;
 }
 
 
