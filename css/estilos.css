@@ -72,11 +72,6 @@ body {
     }
 }
 
-
-a {
-    cursor: ;
-}
-
 ::-webkit-scrollbar {
     display: none;
 }
@@ -131,7 +126,7 @@ nav {
 header {
     background-image: url(../img/header.gif);
     filter: none;
-    width: 100vw;
+    width: 96vw;
     height: 600px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -139,8 +134,42 @@ header {
     margin-top: 2vw;
     position: absolute;
     top: 0;
-    z-index: 0;
-    transition: filter 0.8s;
+    transition: filter 0.5s;
+}
+
+section#flotantes {
+    background-image: none;
+    filter: none;
+    width: 96vw;
+    position: absolute;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+}
+
+.container .element {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+
+.container .flotante1 {
+    background-image: url(../img/flotante1.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: filter 0.5s;
+}
+
+.container .flotante2 {
+    background-image: url(../img/flotante2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: filter 0.5s;
 }
 
 main {
@@ -182,6 +211,11 @@ a {
 h1:hover {
     text-decoration: underline;
     font-style: italic;
+}
+
+.color-change {
+    color: black;
+    transition: color 0.5s;
 }
 
 .color-change:hover {

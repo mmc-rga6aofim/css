@@ -68,4 +68,27 @@ miElemento5.addEventListener('mouseout', function() {
 });
 
 
+var miElemento2 = document.getElementById('miElemento6');
+var body = document.body;
+
+miElemento2.addEventListener('mouseover', function() {
+  body.style.backgroundColor ='black';
+});
+
+miElemento2.addEventListener('mouseout', function() {
+  body.style.backgroundColor = '#f1f1f1';
+});
+
+
+var miElemento2 = document.getElementById('miElemento7');
+var body = document.body;
+
+miElemento2.addEventListener('mouseover', function() {
+  body.style.backgroundColor ='black';
+});
+
+miElemento2.addEventListener('mouseout', function() {
+  body.style.backgroundColor = '#f1f1f1';
+});
+
 

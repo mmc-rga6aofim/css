@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
     <title>CSS</title>
 </head>
 
-<body id="color">
+<body id="color" data-scroll-container onload="move('element')">
     <nav>
         <div class="gen">
             <div class="col">
@@ -25,14 +26,13 @@
                         day = date.getDate();
                         hours = date.getHours();
                         minutes = date.getMinutes();
-                        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year + " " +
-                            "<br>" +
-                            hours + ":" + ("0" + minutes).slice(-2) + " " + "GMT-6";
+                        document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year +
+                            "<br>" + hours + ":" + ("0" + minutes).slice(-2) + " " + "GMT-6";
                     }
 
-                    updateClock(); // llama a la función para que muestre la hora inmediatamente
+                    updateClock(); // llama a la función para que funcione
 
-                    setInterval(updateClock, 1000); // llama a la función cada segundo para actualizar la hora
+                    setInterval(updateClock, 1000); // actualiza la función cada segundo
                 </script>
 
             </div>
@@ -46,41 +46,96 @@
         </div>
     </nav>
     <section class="general">
-        <header id="header">
+        <header id="header" data-scroll-section>
         </header>
-        <main class="main">
+        <aside id="flotantes" class="container">
+            <div class="element flotante1" data-scroll data-scroll-speed="-5"></div>
+            <div class="element flotante2" data-scroll data-scroll-speed="-5"></div>
+            <div class="element flotante3" style="background: yellow;" data-scroll data-scroll-speed="-5"></div>
+            <div class="element flotante4" style="background: green;" data-scroll data-scroll-speed="-5"></div>
+
+            <script>
+                var chooseElement;
+
+                const move = function (element) {
+                    const elements = document.querySelectorAll(".element")
+
+                    elements.forEach(element => {
+                        element.addEventListener("mousedown", () => {
+                            element.style.position = "absolute"
+                            chooseElement = element
+
+                            document.onmousemove = (e) => {
+                                var x = e.pageX
+                                var y = e.pageY
+
+                                chooseElement.style.left = x - 100 + "px"
+                                chooseElement.style.top = y - 200 + "px"
+
+                                console.log(chooseElement)
+                            }
+                        })
+                    })
+                    document.onmouseup = function (e) {
+                        chooseElement = null
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main" data-scroll-section>
             <div class="gen">
                 <div class="col4 padding">
                     <a href="">
-                        <h1 id="miElemento" class="color-change" onmouseover="invertBackground(true)" onmouseout="invertBackground(false)">Conceptos básicos</h1>
+                        <h1 id="miElemento" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Conceptos básicos</h1>
                     </a>
                 </div>
             </div>
             <div class="gen">
                 <div class="col4 padding">
                     <a href="">
-                        <h1 id="miElemento2" class="color-change" onmouseover="invertBackground(true)" onmouseout="invertBackground(false)">Sintaxis</h1>
+                        <h1 id="miElemento2" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Sintaxis</h1>
                     </a>
                 </div>
             </div>
             <div class="gen">
                 <div class="col4 padding">
                     <a href="">
-                        <h1 id="miElemento3" class="color-change" onmouseover="invertBackground(true)" onmouseout="invertBackground(false)">Animaciones</h1>
+                        <h1 id="miElemento3" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Animaciones y transiciones</h1>
                     </a>
                 </div>
             </div>
             <div class="gen">
                 <div class="col4 padding">
                     <a href="">
-                        <h1 id="miElemento4" class="color-change" onmouseover="invertBackground(true)" onmouseout="invertBackground(false)">Pseudoclases y pseudoelementos</h1>
+                        <h1 id="miElemento4" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Selectores avanzados</h1>
                     </a>
                 </div>
             </div>
             <div class="gen">
                 <div class="col4 padding">
                     <a href="">
-                        <h1 id="miElemento5" class="color-change" onmouseover="invertBackground(true)" onmouseout="invertBackground(false)">Media queries y diseño adaptable</h1>
+                        <h1 id="miElemento5" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Media queries y diseño adaptable</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4 padding">
+                    <a href="">
+                        <h1 id="miElemento6" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">Flexbox</h1>
+                    </a>
+                </div>
+            </div>
+            <div class="gen">
+                <div class="col4 padding">
+                    <a href="">
+                        <h1 id="miElemento7" class="color-change" onmouseover="invertBackground(true)"
+                            onmouseout="invertBackground(false)">CSS grid</h1>
                     </a>
                 </div>
             </div>
@@ -99,4 +154,7 @@
 <script src="js/colorfondo.js"></script>
 <script src="js/colortexto.js"></script>
 <script src="js/colorgif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/scroll.js"></script>
+
 </html>
