@@ -162,14 +162,36 @@ section#flotantes {
     background-position: center;
     background-repeat: no-repeat;
     transition: filter 0.5s;
+    position: relative;
+    top: 30vh;
+    left: 60px;
 }
 
 .container .flotante2 {
-    background-image: url(../img/flotante2.png);
+    background-color: #ffef03;
+    transition: filter 0.5s;
+    position: relative;
+    top: -5vh;
+    left: 75px;
+}
+
+.container .flotante3 {
+    background-image: url(../img/flotante3.jpg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     transition: filter 0.5s;
+    position: relative;
+    bottom: -30vh;
+    right: -18vw;
+}
+
+.container .flotante4 {
+    background-color: #00ff00;
+    transition: filter 0.5s;
+    position: relative;
+    top: -15vh;
+    right: -30vw;
 }
 
 main {
