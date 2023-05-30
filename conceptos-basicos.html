@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Conceptos básicos | CSS</title>
+</head>
+
+<body id="color" data-scroll-container onload="move('element')" class="subtema">
+    <nav>
+        <div class="gen">
+            <div class="col">
+                <p class="parrafo" id="current_date">
+                </p>
+
+                <!--FECHA ACTUAL-->
+                <script>
+                    function updateClock() {
+                        var date = new Date();
+                        var year = date.getFullYear().toString();
+                        var month = date.getMonth() + 1;
+                        var day = date.getDate();
+                        var hours = date.getHours();
+                        var minutes = date.getMinutes();
+                        var seconds = date.getSeconds();
+
+                        document.getElementById("current_date").innerHTML =
+                            day + "/" + month + "/" + year + "<br>" + hours + ":" + ("0" + minutes).slice(-2) + ":" + (
+                                "0" + seconds).slice(-2) + " GMT-6";
+                    }
+
+                    updateClock(); // llama a la función para que jale
+
+                    setInterval(updateClock, 1000); // actualiza la función cada segundo
+                </script>
+                </script>
+
+            </div>
+            <div class="col2">
+                <p class="parrafo tituloseccion">
+                    Conceptos básicos
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </nav>
+    <section class="general">
+        <aside id="flotantes" class="container" data-scroll-section>
+            <div class="element flotante1" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante2" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante3" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante4" data-scroll data-scroll-speed="-4"></div>
+
+            <script>
+                var chooseElement;
+
+                const move = function (element) {
+                    const elements = document.querySelectorAll(".element")
+
+                    elements.forEach(element => {
+                        element.addEventListener("mousedown", () => {
+                            element.style.position = "absolute"
+                            chooseElement = element
+
+                            document.onmousemove = (e) => {
+                                var x = e.pageX
+                                var y = e.pageY
+
+                                chooseElement.style.left = x - 100 + "px"
+                                chooseElement.style.top = y - 200 + "px"
+
+                                console.log(chooseElement)
+                            }
+                        })
+                    })
+                    document.onmouseup = function (e) {
+                        chooseElement = null
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main" data-scroll-section>
+            <div class="selectores">
+                <div class="gen">
+                    <div class="col4">
+                        <h2>Selectores</h2>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col4">
+                        <p class="parrafo subtema">
+                            Los selectores en CSS permiten identificar los elementos HTML a los que se les aplicarán
+                            estilos. Algunos ejemplos de selectores son: selectores de tipo, selectores de clase,
+                            selectores de ID y selectores de atributo.
+                        </p>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Selectores básicos</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo">
+                            <ul>
+                                <li>
+                                    <p class="parrafo">
+                                        Selectores de tipo (etiquetas):
+                                    </p>
+                                    <p class="parrafo contenido">
+                                        <br>
+                                        Este selector se utiliza para seleccionar elementos basados en su etiqueta HTML.
+                                        Puedes utilizar el nombre de la etiqueta como selector para aplicar estilos a
+                                        todos los elementos de ese tipo. Por ejemplo, si deseas aplicar estilos a todos
+                                        los párrafos (p) de tu página, puedes usar el selector p. Esto afectará a
+                                        todos los elementos de párrafo en tu documento.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="parrafo">
+                                        Selectores de clase:
+                                    </p>
+                                    <br>
+                                    <p class="parrafo contenido">
+                                        El selector de clase te permite seleccionar elementos que tienen asignada una
+                                        clase específica en su atributo class. Puedes utilizar el prefijo . seguido del
+                                        nombre de la clase para seleccionar los elementos deseados. Por ejemplo, si
+                                        tienes un elemento de div con la clase "salte-del-salón", puedes seleccionarlo
+                                        utilizando el selector .salte-del-salón. Esto aplicará estilos solo a los
+                                        elementos
+                                        que tengan la clase "salte-del-salón".
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="parrafo">
+                                        Selector de ID:
+                                    </p>
+                                    <br>
+                                    <p class="parrafo contenido">
+                                        El selector de ID se utiliza para seleccionar un elemento específico basado en
+                                        su atributo id. Puedes utilizar el prefijo # seguido del nombre del ID para
+                                        seleccionar el elemento deseado. Por ejemplo, si tienes un elemento de h1 con el
+                                        ID "principal", puedes seleccionarlo utilizando el selector
+                                        #principal. Esto aplicará estilos solo a ese elemento en particular.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="parrafo">
+                                        Selector de atributo (corchetes):
+                                    </p>
+                                    <br>
+                                    <p class="parrafo contenido">
+                                        El selector de atributo te permite seleccionar elementos basados en un atributo
+                                        específico. Puedes seleccionar elementos que tengan ese atributo en general
+                                        ([atributo]) o elementos que tengan un atributo con un valor específico
+                                        ([atributo="valor"]). Por ejemplo, puedes seleccionar todos los elementos input
+                                        que tengan el atributo type establecido en "text" utilizando el selector
+                                        [type="text"].
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="parrafo">
+                                        Selector universal:
+                                    </p>
+                                    <br>
+                                    <p class="parrafo contenido">
+                                        El selector universal CSS (*) coincide con elementos de cualquier tipo.
+                                    </p>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col3">
+                        <!--CODEPEN PARA SELECTORES-->
+                        <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="YzJbQBd"
+                            data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/YzJbQBd">
+                                    Selectores | RGA6AOFIM</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br>
+                        <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors" class="enlace"
+                            target="_blank">
+                            <p class="parrafo">Para más información</p>
+                        </a>
+                        <br><br><br><br>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Combinadores</h3>
+                    </div>
+                    <div class="col2">
+                        <ul>
+                            <li>
+                                <p class="parrafo">
+                                    Combinador de descendencia (solo espacio):
+                                </p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Este combinador selecciona elementos secundarios que están anidados dentro de un
+                                    elemento padre. El selector consiste en especificar el selector del elemento padre
+                                    seguido de un espacio y luego el selector del elemento secundario. Por ejemplo, si
+                                    deseas seleccionar todos los elementos p que son descendientes directos de un div,
+                                    puedes utilizar el selector div p. Esto aplicará estilos a todos los párrafos que
+                                    están anidados dentro de un elemento div.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo">
+                                    Combinador de hijo directo (>):
+                                </p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Este combinador selecciona elementos que son hijos (se le llama hijo a un elemento
+                                    cuando está dentro de otro elemento, el cual se menciona como padre) directos de un
+                                    elemento padre.
+                                    Utilizas el selector del elemento padre seguido del símbolo > y luego el selector
+                                    del hijo directo. Por ejemplo, si deseas seleccionar todos los elementos li que son
+                                    hijos directos de un ul, puedes utilizar el selector ul > li. Esto aplicará estilos
+                                    solo a los elementos li que son hijos directos de un elemento ul.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo">
+                                    Combinador de adyacencia (+):
+                                </p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    El combinador de adyacencia en CSS se representa con el símbolo "+" y se utiliza
+                                    para seleccionar el siguiente elemento adyacente que sigue inmediatamente al primer
+                                    elemento especificado. En otras palabras, selecciona un elemento hermano que está
+                                    justo después del primer elemento en el árbol de elementos HTML.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo">
+                                    Combinador de hermano general (~):
+                                </p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Este combinador selecciona todos los elementos hermanos que siguen al primer
+                                    elemento, sin importar su posición. Se utiliza el símbolo ~ entre los selectores.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col3">
+                        <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="MWPdvav"
+                            data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/MWPdvav">
+                                    Untitled</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br>
+                        <a href="https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors#combinadores"
+                            class="enlace" target="_blank">
+                            <p class="parrafo">Para más información</p>
+                        </a>
+                        <br><br><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="propiedades">
+                <div class="gen">
+                    <div class="col4">
+                        <h2>Propiedades</h2>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col4">
+                        <p class="parrafo subtema">
+                            Las propiedades de CSS definen cómo se verán los elementos seleccionados. Hay una amplia
+                            gama de propiedades, como color de fondo, tamaño de fuente, margen, relleno, etc. Algunos
+                            ejemplos de propiedades son: color, font-size, margin, padding, etc. A continuación se
+                            muestran algunas de las propiedades más comunes:
+                        </p>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Color</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Esta propiedad establece el color del texto de un elemento. Puedes especificar el color
+                            utilizando nombres predefinidos como "red" o "blue", valores hexadecimales como "#ff0000"
+                            para rojo, o valores RGB como "rgb(255, 0, 0)".
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Font Size</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Esta propiedad define el tamaño de la fuente de un elemento. Puedes especificar el tamaño
+                            utilizando unidades como píxeles (px), porcentajes (%), em (em), o puntos (pt).
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Margin</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Esta propiedad define los márgenes externos de un elemento, es decir, el espacio alrededor
+                            del elemento. Puedes especificar los márgenes utilizando valores individuales para cada lado
+                            (arriba, derecha, abajo, izquierda), o un solo valor para aplicarlo a todos los lados.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Padding</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Esta propiedad define los márgenes internos de un elemento, es decir, el espacio dentro del
+                            borde del elemento. Al igual que con margin, puedes especificar los rellenos utilizando
+                            valores individuales o un solo valor para aplicarlo a todos los lados.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col3">
+                        <p class="codepen" data-height="500" data-default-tab="html,result" data-slug-hash="KKGLvgq"
+                            data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/KKGLvgq">
+                                    Propiedades</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br>
+                        <a href="https://carontestudio.com/blog/listado-de-propiedades-css/"
+                            class="enlace" target="_blank">
+                            <p class="parrafo">Para más información</p>
+                        </a>
+                        <br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="gen">
+            <div class="col">
+                <a href="index.html" class="enlace">
+                    <p class="parrafo">← Inicio</p>
+                </a>
+            </div>
+            <div class="col2">
+                <p class="parrafo">
+                    © 2023 ARG
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </footer>
+</body>
+<script src="js/colorfondo.js"></script>
+<script src="js/colortexto.js"></script>
+<script src="js/colorgif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/scroll.js"></script>
+
+</html>

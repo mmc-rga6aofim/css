@@ -9,7 +9,7 @@ body {
     width: 100vw;
     overflow-x: hidden;
     margin: 0;
-    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+    font-family: 'Neue Haas Grotesk Display Pro', 'Acid Grotesk', sans-serif;
     background-color: #f7f4ef;
     animation: animate 0.8s infinite;
     transition: 0.8s;
@@ -40,6 +40,47 @@ body {
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Display Pro';
+    src: url('../fonts/NeueHaasDisplay-RomanItalic.eot');
+    src: url('../fonts/NeueHaasDisplay-RomanItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NeueHaasDisplay-RomanItalic.woff2') format('woff2'),
+        url('../fonts/NeueHaasDisplay-RomanItalic.woff') format('woff'),
+        url('../fonts/NeueHaasDisplay-RomanItalic.ttf') format('truetype'),
+        url('../fonts/NeueHaasDisplay-RomanItalic.svg#NeueHaasDisplay-RomanItalic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk Display Pro';
+    src: url('../fonts/NeueHaasDisplay-Roman.eot');
+    src: url('../fonts/NeueHaasDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/NeueHaasDisplay-Roman.woff2') format('woff2'),
+        url('../fonts/NeueHaasDisplay-Roman.woff') format('woff'),
+        url('../fonts/NeueHaasDisplay-Roman.ttf') format('truetype'),
+        url('../fonts/NeueHaasDisplay-Roman.svg#NeueHaasDisplay-Roman') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Acid Grotesk';
+    src: url('fonts/AcidGrotesk-Bold.eot');
+    src: local('Acid Grotesk Bold'), local('AcidGrotesk-Bold'),
+        url('fonts/AcidGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/AcidGrotesk-Bold.woff2') format('woff2'),
+        url('fonts/AcidGrotesk-Bold.woff') format('woff'),
+        url('fonts/AcidGrotesk-Bold.ttf') format('truetype'),
+        url('fonts/AcidGrotesk-Bold.svg#AcidGrotesk-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 
 @keyframes animate {
@@ -174,7 +215,6 @@ section#flotantes {
     position: relative;
     top: -5vh;
     left: 75px;
-    z-index: -1;
 }
 
 .container .flotante3 {
@@ -273,4 +313,58 @@ footer {
 
 footer .col4 {
     text-align: center;
+}
+
+/*CONCEPTOS BÁSICOS*/
+
+body.subtema {
+    padding-bottom: 250px;
+}
+
+p.tituloseccion {
+    font-size: 24px;
+    font-stretch: 80%;
+    line-height: 90%;
+    color: black;
+}
+
+body.subtema h2 {
+    font-size: 86px;
+    position: sticky;
+    top: 100px;
+}
+
+body.subtema p.subtema {
+    font-size: 24px;
+    margin-bottom: 100px;
+}
+
+body.subtema h3 {
+    font-size: 24px;
+}
+
+body.subtema p.contenido {
+    font-family: 'Neue Haas Grotesk Display Pro';
+    line-height: 120%;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 40px;
+
+}
+
+body.subtema a {
+    text-align: right;
+}
+
+body.subtema a.enlace:hover {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+body.subtema footer {
+    text-align: center;
+}
+
+body.subtema footer a {
+    text-align: left;
 }
