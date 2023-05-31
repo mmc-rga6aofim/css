@@ -216,7 +216,7 @@ header {
 
 aside {
     width: 96vw;
-    height: auto;
+    height: 600px;
     position: absolute;
     top: 0;
     overflow-y: hidden;
@@ -545,46 +545,8 @@ scrollbarContainer {
 }
 
 @media screen and (max-width: 650px) {
-
-    .col4 h1 {
-        font-size: 40px;
-    }
-
-    body.subtema h3 {
-        font-size: 36px;
-        margin-bottom: 50px;
-    }
-
-    div.gen.salto {
-        flex-direction: column;
-    }
-
-    div.col.doble {
-        width: 47vw;
-    }
-
-    div.col.cero {
-        width: 0;
-    }
-
-    div.col2.cero {
-        width: 0;
-    }
-
-    div.col2.cien {
-        width: 96vw;
-    }
-
-    div.col.cien {
-        width: 96vw;
-    }
-
-    div.col3.cien {
-        width: 96vw;
-    }
-
-    div.col4 h2 {
-        font-size: 60px;
+    body {
+        overflow-x: hidden;
     }
 }
 
