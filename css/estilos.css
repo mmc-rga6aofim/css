@@ -169,25 +169,21 @@ div.gen {
 div.col {
     width: 22.6vw;
     float: right;
-    background-color: aqua;
 }
 
 div.col2 {
     width: 47vw;
     float: right;
-    background-color: aqua;
 }
 
 div.col3 {
     width: 71.5vw;
     float: right;
-    background-color: aqua;
 }
 
 div.col4 {
     width: 96vw;
     float: right;
-    background-color: aqua;
 }
 
 nav {
@@ -220,7 +216,7 @@ header {
 
 aside {
     width: 96vw;
-    height: 768px;
+    height: auto;
     position: absolute;
     top: 0;
     overflow-y: hidden;
