@@ -19,6 +19,7 @@ body {
     animation: animate 0.8s infinite;
     transition: 0.8s;
     position: relative;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -213,21 +214,20 @@ header {
     background-position: center;
     margin-top: 2vw;
     position: absolute;
-    top: 0;
+    top: 2vw;
     transition: filter 0.5s;
 }
 
 aside {
-    width: 100%;
+    width: 96vw;
     height: 768px;
     position: absolute;
-    top: 2vw;
-    left: 2vw;
-    overflow: hidden;
+    top: 0;
+    overflow-y: hidden;
 }
 
 .container {
-    width: 100%;
+    width: 96vw;
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
