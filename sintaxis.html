@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Sintaxis | CSS</title>
+</head>
+
+<body id="color" data-scroll-container onload="move('element')" class="subtema">
+    <nav>
+        <div class="gen">
+            <div class="col">
+                <p class="parrafo" id="current_date">
+                </p>
+
+                <!--FECHA ACTUAL-->
+                <script>
+                    function updateClock() {
+                        var date = new Date();
+                        var year = date.getFullYear().toString();
+                        var month = date.getMonth() + 1;
+                        var day = date.getDate();
+                        var hours = date.getHours();
+                        var minutes = date.getMinutes();
+                        var seconds = date.getSeconds();
+
+                        document.getElementById("current_date").innerHTML =
+                            day + "/" + month + "/" + year + "<br>" + hours + ":" + ("0" + minutes).slice(-2) + ":" + (
+                                "0" + seconds).slice(-2) + " GMT-6";
+                    }
+
+                    updateClock(); // llama a la función para que jale
+
+                    setInterval(updateClock, 1000); // actualiza la función cada segundo
+                </script>
+                </script>
+
+            </div>
+            <div class="col2">
+                <p class="parrafo tituloseccion">
+                    Sintaxis
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </nav>
+    <section class="general">
+        <aside id="flotantes" class="container" data-scroll-section>
+            <div class="element flotante1" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante2" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante3" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante4" data-scroll data-scroll-speed="-4"></div>
+
+            <script>
+                var chooseElement;
+
+                const move = function (element) {
+                    const elements = document.querySelectorAll(".element")
+
+                    elements.forEach(element => {
+                        element.addEventListener("mousedown", () => {
+                            element.style.position = "absolute"
+                            chooseElement = element
+
+                            document.onmousemove = (e) => {
+                                var x = e.pageX
+                                var y = e.pageY
+
+                                chooseElement.style.left = x - 100 + "px"
+                                chooseElement.style.top = y - 200 + "px"
+
+                                console.log(chooseElement)
+                            }
+                        })
+                    })
+                    document.onmouseup = function (e) {
+                        chooseElement = null
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main" data-scroll-section>
+            <div class="selectores">
+                <div class="gen">
+                    <div class="col4">
+                        <p class="parrafo subtema">
+                            El objetivo fundamental del lenguaje CSS (Cascading Style Sheets) es permitir que el
+                            navegador pinte elementos de una página con características específicas, como colores,
+                            posición o decoración. La sintaxis de CSS refleja estos objetivos y consta de los siguientes
+                            bloques básicos de construcción:
+                        </p>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col2">
+                        <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="RwemZxP"
+                            data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/RwemZxP">
+                                    Sintaxis CSS</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Selector</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Es una expresión que selecciona uno o varios elementos HTML a los que se les aplicarán los
+                            estilos. Puede ser el nombre de una etiqueta HTML (como "h1" o "p"), una clase (precedida
+                            por un punto, como ".mi-clase"), un ID (precedido por un símbolo de numeral o almohadilla,
+                            como "#mi-id"), un atributo, una pseudo-clase o incluso una combinación de estos elementos.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Propiedad</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Es el atributo específico que se desea estilizar en los elementos seleccionados. Las
+                            propiedades pueden ser diversas, como "color" (color del texto), "font-size" (tamaño de la
+                            fuente), "background-color" (color de fondo), "margin" (margen), "padding" (relleno) y
+                            muchas más. Cada propiedad tiene un propósito y efecto específico sobre los elementos.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Valor</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Es el valor asignado a la propiedad seleccionada. Los valores pueden ser colores (como "red"
+                            o "#00ff00"), medidas (como "10px" o "2em"), números, cadenas de texto, imágenes, entre
+                            otros. El valor determina cómo se verá y se comportará la propiedad en los elementos
+                            seleccionados.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="gen">
+            <div class="col">
+                <a href="index.html" class="enlace">
+                    <p class="parrafo">← Inicio</p>
+                </a>
+            </div>
+            <div class="col2">
+                <p class="parrafo">
+                    © 2023 ARG
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </footer>
+</body>
+<script src="js/colorfondo.js"></script>
+<script src="js/colortexto.js"></script>
+<script src="js/colorgif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/scroll.js"></script>
+
+</html>

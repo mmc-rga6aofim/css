@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Animaciones y transiciones | CSS</title>
+</head>
+
+<body id="color" data-scroll-container onload="move('element')" class="subtema">
+    <nav>
+        <div class="gen">
+            <div class="col">
+                <p class="parrafo" id="current_date">
+                </p>
+
+                <!--FECHA ACTUAL-->
+                <script>
+                    function updateClock() {
+                        var date = new Date();
+                        var year = date.getFullYear().toString();
+                        var month = date.getMonth() + 1;
+                        var day = date.getDate();
+                        var hours = date.getHours();
+                        var minutes = date.getMinutes();
+                        var seconds = date.getSeconds();
+
+                        document.getElementById("current_date").innerHTML =
+                            day + "/" + month + "/" + year + "<br>" + hours + ":" + ("0" + minutes).slice(-2) + ":" + (
+                                "0" + seconds).slice(-2) + " GMT-6";
+                    }
+
+                    updateClock(); // llama a la función para que jale
+
+                    setInterval(updateClock, 1000); // actualiza la función cada segundo
+                </script>
+                </script>
+
+            </div>
+            <div class="col2">
+                <p class="parrafo tituloseccion">
+                    Animaciones y transiciones
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </nav>
+    <section class="general">
+        <aside id="flotantes" class="container" data-scroll-section>
+            <div class="element flotante1" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante2" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante3" data-scroll data-scroll-speed="-4"></div>
+            <div class="element flotante4" data-scroll data-scroll-speed="-4"></div>
+
+            <script>
+                var chooseElement;
+
+                const move = function (element) {
+                    const elements = document.querySelectorAll(".element")
+
+                    elements.forEach(element => {
+                        element.addEventListener("mousedown", () => {
+                            element.style.position = "absolute"
+                            chooseElement = element
+
+                            document.onmousemove = (e) => {
+                                var x = e.pageX
+                                var y = e.pageY
+
+                                chooseElement.style.left = x - 100 + "px"
+                                chooseElement.style.top = y - 200 + "px"
+
+                                console.log(chooseElement)
+                            }
+                        })
+                    })
+                    document.onmouseup = function (e) {
+                        chooseElement = null
+                    }
+                }
+            </script>
+        </aside>
+        <main class="main" data-scroll-section>
+            <div id="animaciones">
+                <div class="gen">
+                    <div class="col4">
+                        <h2>Animaciones</h2>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col4">
+                        <p class="parrafo subtema">
+                            Las animaciones en CSS son una forma de agregar movimiento y cambios visuales a los
+                            elementos de una página web. Puedes hacer que un elemento se mueva, cambie de tamaño, cambie
+                            de color, entre otras cosas. </p>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>@keyframes</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            La regla @keyframes en CSS se utiliza para definir los diferentes momentos clave de una
+                            animación. Es una parte fundamental para crear animaciones en CSS.
+                            <br><br>
+                            Cuando usas @keyframes, especificas los estados de la animación en porcentajes o palabras
+                            clave como from y to. Cada estado representa cómo quieres que se vea el elemento en ese
+                            momento específico de la animación.
+                            <br><br>
+                            Puedes definir múltiples estados clave dentro de @keyframes, lo que te permite controlar con
+                            precisión cómo se animarán las propiedades del elemento a lo largo del tiempo.
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col3">
+                        <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="css,result"
+                            data-slug-hash="YzJbmoX" data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/YzJbmoX">
+                                    keyframes</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            En este ejemplo, @keyframes se llama mover y tiene dos estados clave. En el estado inicial
+                            (0%), se establece la propiedad left en 0, lo que significa que el cuadro se encuentra en la
+                            posición más a la izquierda. En el estado final (100%), se establece la propiedad left en
+                            200px, lo que hace que el cuadro se mueva 200 píxeles hacia la derecha.
+                            <br><br>
+                            Después de definir @keyframes, puedes utilizar el nombre de la animación (mover en este
+                            caso) en la propiedad animation-name para aplicarla a un elemento y lograr el efecto de
+                            animación deseado.
+                            <br><br>
+                            @keyframes te brinda flexibilidad y control sobre cómo se desarrolla una animación en CSS,
+                            ya que puedes especificar los momentos clave y los cambios en las propiedades de manera
+                            precisa a lo largo del tiempo.
+                        </p>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations"
+                            class="enlace" target="_blank">
+                            <p class="parrafo">Para más información ↗</p>
+                        </a>
+                        <br><br><br><br>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Propiedades animadas</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Las propiedades animadas en CSS son las propiedades de estilo que puedes modificar en los
+                            diferentes estados clave de una animación para crear efectos visuales dinámicos y de
+                            movimiento. Estas propiedades pueden incluir:
+                        </p>
+                        <br><br>
+                        <ul>
+                            <li>
+                                <p class="parrafo titulo">Posición y dimensiones:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    <i style="background-color: yellow;"> "top", "right", "bottom", "left"</i>:
+                                    controlan la posición del elemento.
+                                    <br><br>
+                                    <i style="background-color: yellow;">"width" y "height"</i>: ajustan el ancho y alto
+                                    del elemento.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">Estilos visuales:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    <i style="background-color: yellow;">"color", "background-color"</i>: cambian el
+                                    color del texto o del fondo.
+                                    <br><br>
+                                    <i style="background-color: yellow;">"opacity"</i>: controla la opacidad del
+                                    elemento.
+                                    <br><br>
+                                    <i style="background-color: yellow;">"border-color", "border-width",
+                                        "border-radius"</i>: modifican el color, ancho y borde
+                                    redondeado del elemento.
+                                    <br><br>
+                                    <i style="background-color: yellow;">"box-shadow"</i>: crea una sombra alrededor del
+                                    elemento.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">Transformaciones:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    <i style="background-color: yellow;">"transform"</i>: permite aplicar
+                                    transformaciones 2D y 3D al elemento, como rotación, escala y traslación.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">Interacciones del usuario:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    <i style="background-color: yellow;">"cursor"</i>: define el estilo del cursor
+                                    cuando se coloca sobre el elemento.
+                                    <br><br>
+                                    <i style="background-color: yellow;">"pointer-events"</i>: controla la interacción
+                                    con el elemento mediante el ratón.
+                                </p>
+                            </li>
+                        </ul>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>animation-name</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            La propiedad animation-name en CSS se utiliza para darle un nombre a una animación que has
+                            definido previamente utilizando @keyframes. Es como ponerle un título a la animación.
+                            <br><br>
+                            Cuando defines una animación con @keyframes, especificas cómo quieres que se vea un elemento
+                            en diferentes momentos clave. Luego, con animation-name, le dices al elemento que aplique
+                            esa animación en particular.
+                            <br><br>
+                            Aquí tienes un ejemplo simple:
+                        </p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col3">
+                        <p class="codepen" data-height="400" data-theme-id="dark" data-default-tab="css,result"
+                            data-slug-hash="VwEJZbj" data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/VwEJZbj">
+                                    Untitled</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col"></div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            En este caso, hemos creado una animación llamada mover utilizando @keyframes. La animación
+                            hace que el elemento se mueva de izquierda a derecha. Luego, con animation-name, le decimos
+                            al elemento con la clase .elemento que utilice la animación mover.
+                            <br><br>
+                            Es como si le asignaras un nombre a una receta (animación) que has creado y luego le dices a
+                            un elemento específico (usando animation-name) que siga esa receta para animarse.
+                            <br><br>
+                            Recuerda que es importante asegurarte de que el nombre de la animación en animation-name
+                            coincida exactamente con el nombre que has definido en @keyframes para que la animación
+                            funcione correctamente.
+                        </p>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Otras propiedades de animación:</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Hay varias propiedades adicionales que se pueden utilizar para controlar y ajustar la
+                            animación en CSS. Estas propiedades incluyen:
+                        </p>
+                        <ul>
+                            <li>
+                                <p class="parrafo titulo">animation-duration:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta propiedad establece la duración de la animación, es decir, cuánto tiempo tarda
+                                    en completarse una repetición de la animación. Se especifica en segundos (s) o
+                                    milisegundos (ms).
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">animation-timing-function:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta propiedad define la función de temporización que determina cómo se distribuye
+                                    la animación a lo largo de su duración. Puedes utilizar diferentes funciones como
+                                    ease (predeterminado), linear, ease-in, ease-out, ease-in-out, entre otras.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">animation-delay:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta propiedad establece un retraso antes de que comience la animación. Puedes
+                                    especificar un valor en segundos (s) o milisegundos (ms). Es útil para controlar el
+                                    momento en que una animación se activa.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">animation-iteration-count:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta propiedad determina cuántas veces se repetirá la animación. Puedes establecer
+                                    un número finito (por ejemplo, 3 para repetir la animación tres veces) o utilizar el
+                                    valor infinite para repetir la animación indefinidamente.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">animation-direction:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta propiedad define la dirección de la animación. Puedes establecerla como normal
+                                    (de inicio a fin), reverse (de fin a inicio), alternate (se invierte en cada
+                                    repetición) o alternate-reverse (inicia en la dirección inversa y se invierte en
+                                    cada repetición).
+                                </p>
+                            </li>
+                        </ul>
+                        <p class="parrafo contenido">
+                            Estas propiedades adicionales te brindan mayor control sobre la apariencia y el
+                            comportamiento de la animación en CSS. Puedes ajustar la duración, el retraso, la función de
+                            temporización, la repetición y la dirección para crear efectos animados más personalizados y
+                            sofisticados.
+                        </p>
+                        <br><br><br><br><br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div id="transiciones">
+                <div class="gen">
+                    <div class="col4">
+                        <h2>Transiciones</h2>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col4">
+                        <p class="parrafo subtema">
+                            Las transiciones en CSS permiten crear cambios suaves y fluidos entre los diferentes estados
+                            de un elemento, como al cambiar propiedades como el color, tamaño, posición, entre otros.
+                            Proporcionan una forma elegante de animar y mejorar la experiencia visual de una página web.
+                        </p>
+                    </div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Propiedades de transición</h3>
+                    </div>
+                    <div class="col2">
+                        <ul>
+                            <li>
+                                <p class="parrafo titulo">transition-property:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Especifica las propiedades que se animarán durante la transición.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">transition-duration:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Establece la duración de la transición, es decir, cuánto tiempo tarda en
+                                    completarse.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">transition-timing-function:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Controla la forma en que se acelera o desacelera la transición.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">transition-delay:</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Define un retraso antes de que comience la transición.
+                                </p>
+                            </li>
+                        </ul>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Transiciones en pseudoclases:</h3>
+                    </div>
+                    <div class="col2">
+                        <p class="parrafo contenido">
+                            Las transiciones en pseudoclases son una forma de aplicar efectos de transición a un
+                            elemento cuando ocurre una interacción específica con él. Estas pseudoclases se utilizan
+                            para seleccionar y estilizar elementos en ciertos estados o situaciones.
+                        </p>
+                        <ul>
+                            <li>
+                                <p class="parrafo titulo">:hover</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta pseudoclase se activa cuando el cursor se coloca sobre un elemento. Puedes
+                                    utilizarla para animar propiedades como el color de fondo, el tamaño o la opacidad
+                                    al pasar el cursor sobre el elemento.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">:focus</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta pseudoclase se activa cuando un elemento obtiene el enfoque, generalmente
+                                    mediante un clic o cuando se selecciona mediante la navegación por teclado. Puedes
+                                    utilizarla para aplicar transiciones a elementos interactivos como formularios.
+                                </p>
+                            </li>
+                            <li>
+                                <p class="parrafo titulo">:active</p>
+                                <br>
+                                <p class="parrafo contenido">
+                                    Esta pseudoclase se activa cuando se presiona un elemento, como un botón. Puedes
+                                    utilizarla para aplicar transiciones a elementos mientras se mantenga presionado.
+                                </p>
+                            </li>
+                        </ul>
+                        <br><br><br><br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="gen">
+                    <div class="col">
+                        <h3>Ejemplo de un sitio web con animaciones y transiciones</h3>
+                    </div>
+                    <div class="col3">
+                        <p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="css,result"
+                            data-slug-hash="WNaqNeP" data-user="Alan-Rodr-guez-Gallegos"
+                            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                            <span>See the Pen <a href="https://codepen.io/Alan-Rodr-guez-Gallegos/pen/WNaqNeP">
+                                    Untitled</a> by Alan Rodríguez Gallegos (<a
+                                    href="https://codepen.io/Alan-Rodr-guez-Gallegos">@Alan-Rodr-guez-Gallegos</a>)
+                                on <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+                        <br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="gen">
+            <div class="col">
+                <a href="index.html" class="enlace">
+                    <p class="parrafo">← Inicio</p>
+                </a>
+            </div>
+            <div class="col2">
+                <p class="parrafo">
+                    © 2023 ARG
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </footer>
+</body>
+<script src="js/colorfondo.js"></script>
+<script src="js/colortexto.js"></script>
+<script src="js/colorgif.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/scroll.js"></script>
+
+</html>

@@ -71,15 +71,42 @@ body {
     font-family: 'Acid Grotesk';
     src: url('fonts/AcidGrotesk-Bold.eot');
     src: local('Acid Grotesk Bold'), local('AcidGrotesk-Bold'),
-        url('fonts/AcidGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
-        url('fonts/AcidGrotesk-Bold.woff2') format('woff2'),
-        url('fonts/AcidGrotesk-Bold.woff') format('woff'),
-        url('fonts/AcidGrotesk-Bold.ttf') format('truetype'),
-        url('fonts/AcidGrotesk-Bold.svg#AcidGrotesk-Bold') format('svg');
+        url('../fonts/AcidGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/AcidGrotesk-Bold.woff2') format('woff2'),
+        url('../fonts/AcidGrotesk-Bold.woff') format('woff'),
+        url('../fonts/AcidGrotesk-Bold.ttf') format('truetype'),
+        url('../fonts/AcidGrotesk-Bold.svg#AcidGrotesk-Bold') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../fonts/JetBrainsMono-MediumItalic.eot');
+    src: url('../fonts/JetBrainsMono-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/JetBrainsMono-MediumItalic.woff2') format('woff2'),
+        url('../fonts/JetBrainsMono-MediumItalic.woff') format('woff'),
+        url('../fonts/JetBrainsMono-MediumItalic.ttf') format('truetype'),
+        url('../fonts/JetBrainsMono-MediumItalic.svg#JetBrainsMono-MediumItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../fonts/JetBrainsMono-Medium.eot');
+    src: url('../fonts/JetBrainsMono-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+        url('../fonts/JetBrainsMono-Medium.woff') format('woff'),
+        url('../fonts/JetBrainsMono-Medium.ttf') format('truetype'),
+        url('../fonts/JetBrainsMono-Medium.svg#JetBrainsMono-Medium') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 
 
@@ -178,14 +205,18 @@ header {
     transition: filter 0.5s;
 }
 
-section#flotantes {
-    background-image: none;
-    filter: none;
-    width: 96vw;
+aside {
+    width: 100%;
+    height: 768px;
     position: absolute;
+    top: 2vw;
+    left: 2vw;
+    overflow: hidden;
 }
 
 .container {
+    width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -204,8 +235,8 @@ section#flotantes {
     background-repeat: no-repeat;
     transition: filter 0.5s;
     position: relative;
-    top: 30vh;
-    left: 60px;
+    top: 28vw;
+    left: 5vw;
     z-index: 11;
 }
 
@@ -213,8 +244,8 @@ section#flotantes {
     background-color: #ffef03;
     transition: filter 0.5s;
     position: relative;
-    top: -5vh;
-    left: 75px;
+    top: 3vw;
+    left: 5vw;
 }
 
 .container .flotante3 {
@@ -224,8 +255,8 @@ section#flotantes {
     background-repeat: no-repeat;
     transition: filter 0.5s;
     position: relative;
-    bottom: -30vh;
-    right: -18vw;
+    top: 20vw;
+    left: 18vw;
     z-index: 11;
 }
 
@@ -233,8 +264,8 @@ section#flotantes {
     background-color: #00ff00;
     transition: filter 0.5s;
     position: relative;
-    top: -15vh;
-    right: -30vw;
+    top: 0;
+    left: 10vw;
 }
 
 main {
@@ -302,10 +333,11 @@ div.padding {
 
 
 footer {
+    width: 96vw;
     position: fixed;
     bottom: 0;
     padding-bottom: 1vw;
-    margin: 0 2vw 0 2vw;
+    margin: 0 0 0 2vw;
     mix-blend-mode: difference;
     filter: invert(100%);
     color: black;
@@ -335,8 +367,11 @@ body.subtema h2 {
 }
 
 body.subtema p.subtema {
-    font-size: 24px;
+    font-family: 'JetBrains Mono';
+    font-size: 18px;
     margin-bottom: 100px;
+    font-weight: 600;
+    line-height: 130%;
 }
 
 body.subtema h3 {
@@ -344,9 +379,9 @@ body.subtema h3 {
 }
 
 body.subtema p.contenido {
-    font-family: 'Neue Haas Grotesk Display Pro';
-    line-height: 120%;
-    font-weight: 400;
+    font-family: 'JetBrains Mono';
+    line-height: 130%;
+    font-weight: 600;
     letter-spacing: 0.5px;
     margin-bottom: 40px;
 
@@ -356,7 +391,7 @@ body.subtema a {
     text-align: right;
 }
 
-body.subtema a.enlace:hover {
+body.subtema a.enlace p.parrafo:hover {
     text-decoration: underline;
     font-style: italic;
 }
@@ -367,4 +402,141 @@ body.subtema footer {
 
 body.subtema footer a {
     text-align: left;
+}
+
+i {
+    font-weight: 800;
+}
+
+p.titulo {
+    font-size: 24px;
+}
+
+/*DISEÑO RESPONSIVE*/
+
+@media screen and (max-width: 1440px) {
+
+    div.element.flotante3 {
+        left: 400px;
+    }
+
+    div.element.flotante4 {
+        top: 0;
+        left: 450px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+
+    div.element.flotante4 {
+        left: 310px;
+    }
+
+    .col4 h1 {
+        font-size: 72px;
+        font-stretch: 80%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    div.element.flotante3 {
+        left: 70px;
+    }
+    
+    div.element.flotante4 {
+        left: 110px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    div.element.flotante3 {
+        left: 40px;
+    }
+
+    div.element.flotante4 {
+        left: 60px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    div.element.flotante1,
+    div.element.flotante2,
+    div.element.flotante3,
+    div.element.flotante4 {
+        width: 150px;
+        height: 150px;
+    }
+
+    div.element.flotante4 {
+        left: 100px;
+    }
+
+    .col4 h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        margin-top: 450px;
+    }
+
+    div.element.flotante4 {
+        left: -25px;
+    }
+
+    div.col2.cero {
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        padding-bottom: 0;
+    }
+
+    .col4 h1 {
+        font-size: 40px;
+    }
+
+    body.subtema h3 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    div.gen.salto {
+        flex-direction: column;
+    }
+
+    div.col.doble {
+        width: 47vw;
+    }
+
+    div.col.cero {
+        width: 0;
+    }
+
+    div.col2.cero {
+        width: 0;
+    }
+
+    div.col2.cien {
+        width: 96vw;
+    }
+
+    div.col.cien {
+        width: 96vw;
+    }
+
+    div.col3.cien {
+        width: 96vw;
+    }
+
+    div.col4 h2 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
 }
