@@ -5,6 +5,11 @@
     -webkit-box-sizing: border-box;
 }
 
+HTML {
+    position: relative;
+    margin: 0;
+}
+
 body {
     width: 100vw;
     overflow-x: hidden;
@@ -13,6 +18,7 @@ body {
     background-color: #f7f4ef;
     animation: animate 0.8s infinite;
     transition: 0.8s;
+    position: relative;
 }
 
 @font-face {
@@ -108,8 +114,6 @@ body {
 }
 
 
-
-
 @keyframes animate {
     0% {
         cursor: url('../img/cursor/cursor_Mesa\ de\ trabajo\ 1.png'), auto;
@@ -140,6 +144,7 @@ body {
     }
 }
 
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -163,32 +168,39 @@ div.gen {
 div.col {
     width: 22.6vw;
     float: right;
+    background-color: aqua;
 }
 
 div.col2 {
     width: 47vw;
     float: right;
+    background-color: aqua;
 }
 
 div.col3 {
     width: 71.5vw;
     float: right;
+    background-color: aqua;
 }
 
 div.col4 {
     width: 96vw;
     float: right;
+    background-color: aqua;
 }
 
 nav {
     padding: 0 2vw 0 2vw;
-    padding-top: 2vw;
     position: sticky;
     top: 0;
     z-index: 1;
     mix-blend-mode: difference;
     filter: invert(100%);
     color: black;
+}
+
+nav div.gen {
+    padding-top: 2vw;
 }
 
 header {
@@ -412,6 +424,10 @@ p.titulo {
     font-size: 24px;
 }
 
+scrollbarContainer {
+    text-replace: unset;
+}
+
 /*DISEÑO RESPONSIVE*/
 
 @media screen and (max-width: 1440px) {
@@ -442,7 +458,7 @@ p.titulo {
     div.element.flotante3 {
         left: 70px;
     }
-    
+
     div.element.flotante4 {
         left: 110px;
     }
@@ -459,6 +475,7 @@ p.titulo {
 }
 
 @media screen and (max-width: 950px) {
+
     div.element.flotante1,
     div.element.flotante2,
     div.element.flotante3,
@@ -487,12 +504,6 @@ p.titulo {
 
     div.col2.cero {
         width: 0;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    main {
-        padding-bottom: 0;
     }
 
     .col4 h1 {
@@ -537,6 +548,48 @@ p.titulo {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
 
+    .col4 h1 {
+        font-size: 40px;
+    }
+
+    body.subtema h3 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    div.gen.salto {
+        flex-direction: column;
+    }
+
+    div.col.doble {
+        width: 47vw;
+    }
+
+    div.col.cero {
+        width: 0;
+    }
+
+    div.col2.cero {
+        width: 0;
+    }
+
+    div.col2.cien {
+        width: 96vw;
+    }
+
+    div.col.cien {
+        width: 96vw;
+    }
+
+    div.col3.cien {
+        width: 96vw;
+    }
+
+    div.col4 h2 {
+        font-size: 60px;
+    }
 }
+
+@media screen and (max-width: 500px) {}
