@@ -50,43 +50,43 @@
             <div class="col2 cero"></div>
         </div>
     </nav>
+    <aside id="flotantes" class="container">
+        <div class="element flotante1"></div>
+        <div class="element flotante2"></div>
+        <div class="element flotante3"></div>
+        <div class="element flotante4"></div>
+
+        <script>
+            var chooseElement;
+
+            const move = function (element) {
+                const elements = document.querySelectorAll(".element")
+
+                elements.forEach(element => {
+                    element.addEventListener("mousedown", () => {
+                        element.style.position = "absolute"
+                        chooseElement = element
+
+                        document.onmousemove = (e) => {
+                            var x = e.pageX
+                            var y = e.pageY
+
+                            chooseElement.style.left = x - 100 + "px"
+                            chooseElement.style.top = y - 100 + "px"
+
+                            console.log(chooseElement)
+                        }
+                    })
+                })
+                document.onmouseup = function (e) {
+                    chooseElement = null
+                }
+            }
+        </script>
+    </aside>
     <section class="general">
         <header id="header" data-scroll-section>
         </header>
-        <aside id="flotantes" class="container">
-            <div class="element flotante1"></div>
-            <div class="element flotante2"></div>
-            <div class="element flotante3"></div>
-            <div class="element flotante4"></div>
-
-            <script>
-                var chooseElement;
-
-                const move = function (element) {
-                    const elements = document.querySelectorAll(".element")
-
-                    elements.forEach(element => {
-                        element.addEventListener("mousedown", () => {
-                            element.style.position = "absolute"
-                            chooseElement = element
-
-                            document.onmousemove = (e) => {
-                                var x = e.pageX
-                                var y = e.pageY
-
-                                chooseElement.style.left = x - 100 + "px"
-                                chooseElement.style.top = y - 200 + "px"
-
-                                console.log(chooseElement)
-                            }
-                        })
-                    })
-                    document.onmouseup = function (e) {
-                        chooseElement = null
-                    }
-                }
-            </script>
-        </aside>
         <main class="main" data-scroll-section>
             <div class="gen">
                 <div class="col4 padding">
